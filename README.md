@@ -140,3 +140,82 @@ Typescript는 JS에서 기본으로 제공하는 기본 제공 유형(built-in t
       code = "ABC"; // OK
       code = false; // Error
       ```
+
+## Type Annotation & Interface
+
+Type Annotation
+- 개발자가 타입을 타입스클비트에게 직접 말해주는 것
+  ```js
+  const rate: number = 5 // number type 지정
+  ```
+
+Type Interface
+- 타입스크립트가 알아서 타입을 추론하는 것
+  ```js
+  const rate = 5
+  ```
+
+타입을 추론하지 못해서 타입 Annotation을 꼭 해줘야하는 경우
+- any 타입을 리턴하는 경우
+  ```js
+  const json = '{"x": 4, "y": 7}'
+  const coordinates = JSON.parse(json)
+  console.log(coordinates)
+  ```
+  
+- 변수 선언을 먼저하고 나중에 초기화 하는 경우
+  ```js
+  let greeting
+  greeting = 'hello' // let greeting: any
+  ```
+
+- 변수에 대입될 값이 일치하지 못하는 경우
+  ```js
+  let num = [-7, -2, 10]
+  let numAboveZero: boolean | number = false
+
+  for (let i =0; i < num.length; i++) {
+    if (num[i] > 0) {
+      numAboveZero = num[i]
+    }
+  }
+  ```
+
+  ## 개발 환경 구성
+
+   Typescript Global Install
+  ```bash
+  npm i -g typescript
+  ```
+
+  Compile 명령어
+  ```bash
+  tsc main.ts
+  ```
+
+  Compile Watch
+  - 바로 컴파일!!
+  - ts 수정하면 자동으로 js 변경
+    ```bash
+    tsc main.ts -w
+    ```
+
+ts.config.json 설정
+```js
+{
+  "compilerOptions": {
+    "rootDir": "./src", // root 경로
+    "outDir": "./build/js", // compile 후 JS 파일 저장 경로
+    "target": "ES6", // ES3 -> ES6
+    "noEmitOnError": false, // ts파일에 Error 있을 때 js파일 emit X
+    "module": "ESNext", // compile 마친 후 JS가 사용하는 모듈 시스템
+    "moduleResolution": "Node", 
+    "esModuleInterop": true, // ES Module, CommonJS 호환해서 사용 가능
+    "lib": ["ESNext", "DOM"], // compile 과정에서 사용하는 라이브러리 지정
+    "strict": true // ㅁ타입스크립트 파일에 타입을 엄격하게 사용한다고 명시
+  },
+  "include": [ // 소스 파일의 어디에서 타입스크립트 파일을 찾을 수 있는지 명시
+    "./src/**/*.ts" // src 폴더안에 모든 하위 경로, 모든 ts 파일
+  ]
+}
+```
