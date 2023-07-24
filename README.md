@@ -223,3 +223,45 @@ ts.config.json 설정
 ## 타입 단언(Type Assertion)
 
 프로그래머가 컴파일러에게 타입에 더 잘 알고 있으니, 나의 주장에 대해 의심하지 마라.
+
+## Type Alias(타입 별칭) Interface
+
+타입의 이름을 지정하는 방법으로 매우 유사
+
+Interface
+- extends를 이용해서 확장
+- 선언 병합 가능 : 같은 이름 선언 후 아래에서 다시 선언해서 병합
+
+Alias
+- Intersection을 이용해서 확장
+- 선언 병합 불가
+
+공통점
+- implements 사용 가능
+  ```js
+  interface(type) IArticle {
+    category: string;
+    content: string;
+  }
+  class Article implements IArticle {
+    public category = '';
+    public content = '';
+  }
+  ```
+- Union
+  - 개발자가 타입 A or 타입 B가 될 수 있는 새 Typedmf aksemf tn dlTtmqslek.
+  - | 연산자를 사용하여 Type과 Interface를 모두 사용하여 새로운 union유형을 생성합니다.
+  - 그러나 선언은 항상 type이어야 합니다.
+    ```js
+    interface Animal {
+      name: string;
+    }
+    interface Bear {
+      honey: boolean;
+    }
+    type NewType = Animal | Bear;
+    const bear1: NewType = {
+      name: 'honey bear',
+      honey: true
+    }
+    ```
