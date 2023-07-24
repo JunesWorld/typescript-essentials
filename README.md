@@ -308,3 +308,13 @@ Record <Keys, Type>
 
 Return Type<T>
 - 함수 T의 반환 타입으로 구성된 타입을 만듭니다.
+
+## Implements VS Extends
+
+Extends
+- Extends 키워드는 자바스크립트에서도 사용할 수 있으며 부모 클래스에 있는 properties나 method를 상속해서 사용할 수 있게 만듭니다.
+
+Implements
+- 새로운 클래스와 타입 체크를 위해서 사용
+- 클래스의 모양을 정의할 때 사용
+- 부모 클래스의 프로퍼티와 메소드를 상속받아서 사용하는게 아니다.
