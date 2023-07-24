@@ -230,6 +230,8 @@ ts.config.json 설정
 
 Interface
 - extends를 이용해서 확장
+- 선언 병합 가능 : 같은 이름 선언 후 아래에서 다시 선언해서 병합
 
 Alias
 - Intersection을 이용해서 확장
+- 선언 병합 불가
