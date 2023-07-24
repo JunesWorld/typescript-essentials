@@ -223,3 +223,13 @@ ts.config.json 설정
 ## 타입 단언(Type Assertion)
 
 프로그래머가 컴파일러에게 타입에 더 잘 알고 있으니, 나의 주장에 대해 의심하지 마라.
+
+## Type Alias(타입 별칭) Interface
+
+타입의 이름을 지정하는 방법으로 매우 유사
+
+Interface
+- extends를 이용해서 확장
+
+Alias
+- Intersection을 이용해서 확장
